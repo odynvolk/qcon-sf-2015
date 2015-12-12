@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			compress: {
 				files: {
-					'css/reveal.min.css': [ 'css/reveal.css', 'css/custom.css' ]
+					'css/reveal.min.css': [ 'css/reveal.css']
 				}
 			}
 		},
