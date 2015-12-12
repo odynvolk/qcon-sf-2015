@@ -1,0 +1,12 @@
+.custom-image, .big-image, .small-image, .smaller-image {
+  border: none !important;
+  box-shadow: none !important; }
+
+.big-image {
+  width: 40%; }
+
+.small-image {
+  width: 25%; }
+
+.smaller-image {
+  width: 8%; }

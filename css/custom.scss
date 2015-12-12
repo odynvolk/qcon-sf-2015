@@ -1,0 +1,20 @@
+.custom-image {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.big-image {
+	@extend .custom-image;
+  width: 40%;
+}
+
+
+.small-image {
+	@extend .custom-image;
+  width: 25%;
+}
+
+.smaller-image {
+	@extend .custom-image;
+  width: 8%;
+}
