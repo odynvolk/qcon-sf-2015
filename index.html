@@ -80,14 +80,20 @@
 						<ul>
 							<li class="fragment"><strong>Microservices</strong></li>
 							<li class="fragment"><strong>Containers / Docker</strong></li>
-							<li class="fragment">Javascript</li>
-							<li class="fragment">Big data</li>
-							<li class="fragment">Streaming</li>
+							<li class="fragment">JavaScript</li>
+							<li class="fragment">Stora datamängder / <br>skalbarhet</li>
+							<li class="fragment">Stream processing</li>
 						</ul>
 					</div>
 
 					<aside class="notes">
-        		Blah blah
+						<p>
+							Microservices, containers, faktiskt används. Skojades om microservices.
+							Meetup på Trifork, bara ovanstående.
+						</p>
+						<p>
+							JavaScript, klient/server/databas (Clusterpoint). Utsålda workshops React.js samt Docker.
+						</p>
     			</aside>
 				</section>
 
@@ -297,6 +303,60 @@
 					<section>
 						<p>Har i sitt API "fetch" samt "push"</p>
 					</section>
+
+					<section>
+						<p>Registrera</p>
+							<pre><code data-trim>
+if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/service-worker.js');
+}
+							</code></pre>
+					</section>
+
+					<section>
+						<p>Installera samt cacha</p>
+							<pre><code data-trim>
+function updateCache() {
+    return caches.open('some-cache-name)
+        .then(function (cache) {
+            return cache.addAll([
+                '/offline-page.html',
+                '/assets/css/main.css',
+                '/assets/js/main.js'
+            ]);
+        });
+};
+
+self.addEventListener('install', function (event) {
+    event.waitUntil(updateCache());
+});
+							</code></pre>
+						<aside class="notes">
+							<p>
+								Lägga till statiskt innehåll. Vi ser att Promises används av Service Workers.
+							</p>
+						</aside>
+					</section>
+
+					<section>
+						<p>Hämta innehåll från cache alt. nätverket</p>
+							<pre><code data-trim>
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request);
+      }
+    )
+  );
+});
+							</code></pre>
+					</section>
+
 					<section>
 						<h2>The Guardian</h2>
 						<img src="img/the-guadian.jpg">
